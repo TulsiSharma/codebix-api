@@ -1,8 +1,10 @@
 const express = require("express");
 const serverless = require("serverless-http");
+var cors = require("cors");
 
 const app = express();
 const router = express.Router();
+app.use(cors());  
 
 router.post("/testAPI", (req, res) => {
     var data="";
@@ -25,7 +27,7 @@ router.post("/testAPI", (req, res) => {
       });
 });
 router.get("/test",(req,res)=>{
-    res.send("hellowwwwwww");
+    res.send("hellowwwww");
 });
 app.use(`/.netlify/functions/api`, router);
 
